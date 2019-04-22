@@ -24,7 +24,7 @@ Content Wrapper. Contains page content -->
          </div>
 
          <div class="box-body">
-            <table class="table table-bordered table-striped">
+            <table class="table table-bordered table-striped dt-responsive tablas ">
                <thead>
                   <tr>
                        <th>#</th>
@@ -84,14 +84,24 @@ Content Wrapper. Contains page content -->
   <div class="modal-dialog">
     <div class="modal-content">
       
-      <form action="">  
-         comment
-        
+      <form action="" role="form" method="POST" enctype="multipart/form-data">  
+         
+         <!-- 
+          *
+          * Header Modal
+          *
+          -->
+         
         <div class="modal-header" style="background: #3c8dbc; color: white;">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title">Completar datos de nuevo usuario</h4>
         </div>
 
+        <!-- 
+          *
+          * Body Modal
+          *
+          -->
         <div class="modal-body">
           <div class="box-body">
           <!-- Ingreso de nombre -->
@@ -139,6 +149,11 @@ Content Wrapper. Contains page content -->
             <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail" width="100px">
         </div><!-- ./form-group-->
 
+        <!-- 
+          *
+          * Footer Modal
+          *
+          -->
         <div class="modal-footer">
           <button type="button" class="btn btn-default pull-left" data-dismisss="modal">Cerrar</button>
           <button type="submit" class="btn btn-primary">Guardar usuario</button>
