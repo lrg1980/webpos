@@ -1361,6 +1361,14 @@ a:focus {
 .form-group-sm .form-control + .form-control-feedback.fa {
   line-height: 30px;
 }
+
+/* Input validación custom 
+.form-group .input:valid, textarea:valid {
+  background:green;
+}
+.form-group .input:invalid, textarea:invalid {
+  background:red;
+}*/
 /*
  * Component: Progress Bar
  * -----------------------

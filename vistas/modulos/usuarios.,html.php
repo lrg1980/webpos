@@ -108,7 +108,7 @@ Content Wrapper. Contains page content -->
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <input type="text" name="nuevoNombre" class="form-control input-lg" placeholder="Ingresar nombre"minlength="3" maxlength="20" required >
+                <input type="text" name="nuevoNombre" class="form-control input-lg" placeholder="Ingresar nombre" required>
               </div>
             </div><!-- ./form-group-->
 
@@ -116,7 +116,7 @@ Content Wrapper. Contains page content -->
         <div class="form-group">
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-key"></i></span>
-            <input type="text" name="nuevoUsuario" class="form-control input-lg" placeholder="Ingresar usuario"  minlength="2" maxlength="10" required>
+            <input type="text" name="nuevoUsuario" class="form-control input-lg" placeholder="Ingresar usuario" required>
           </div>
         </div><!-- ./form-group-->
 
@@ -124,7 +124,7 @@ Content Wrapper. Contains page content -->
         <div class="form-group">
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-            <input type="password" name="nuevoPassword" class="form-control input-lg" placeholder="Ingresar contraseña" minlength="4" maxlength="20"required>
+            <input type="text" name="nuevoPassword" class="form-control input-lg" placeholder="Ingresar contraseña" required>
           </div>
         </div><!-- ./form-group-->
 
@@ -144,9 +144,9 @@ Content Wrapper. Contains page content -->
         <!-- Entrada para Foto -->
         <div class="form-group">
           <div class="panel">SUBIR FOTO</div>
-            <input type="file" class="nuevaFoto" id="nuevaFoto" name="nuevaFoto">
+            <input type="file" id="nuevaFoto" name="nuevaFoto">
             <p class="help-block">Peso máximo de la imagen 1MB</p>
-            <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
+            <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail" width="100px">
         </div><!-- ./form-group-->
 
         <!-- 
@@ -158,16 +158,6 @@ Content Wrapper. Contains page content -->
           <button type="button" class="btn btn-default pull-left" data-dismisss="modal">Cerrar</button>
           <button type="submit" class="btn btn-primary">Guardar usuario</button>
         </div>
-        <!-- 
-         *
-         * Crear usuario en php con la BD
-         *
-          -->
-        <?php
-          $crearUsuario = new ControladorUsuarios();
-          $crearUsuario -> ctrCrearUsuario();
-        ?>
-        
       </form> 
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
