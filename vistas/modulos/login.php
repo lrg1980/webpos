@@ -29,7 +29,7 @@
     
       <?php
         $login = new ControladorUsuarios();
-        $login ->ctrIngresoUsuarios();
+        $login ->ctrIngresoUsuario();
       ?>
 
     </form>
