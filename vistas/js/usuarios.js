@@ -1,8 +1,6 @@
 // <!--===========================================
 // =            Subir foto de usuario            =
 // ============================================-->
-
-// $(document).ready(function(){	
 $(".nuevaFoto").change(function(){
 
 	var imagen = this.files[0];
@@ -24,7 +22,6 @@ $(".nuevaFoto").change(function(){
 	// =            Validar el peso de la imagen               =
 	// ======================================================-->
 	}else if(imagen["size"] > 1000000){
-
 		$(".nuevaFoto").val("");
 			Swal.fire({
 				title: "Error al subir la imagen",
@@ -50,7 +47,11 @@ $(".nuevaFoto").change(function(){
 
 })
 
-$(".btnEditarUsuario").click(function(){
+/**=============================================
+ *              EDITAR USUARIO
+ =============================================*/
+$(document).on("click", ".btnEditarUsuario", function () {
+    
 	var idUsuario = $(this).attr("idUsuario");
 	
 	var datos = new FormData();
@@ -64,7 +65,8 @@ $(".btnEditarUsuario").click(function(){
 		contentType: false,
 		processData: false,
 		dataType: "json",
-		success: function (respuesta) {
+        success:function(respuesta){
+            
 			// console.log("respuesta", respuesta);
 			$("#editarNombre").val(respuesta["nombre"]);
 			$("#editarUsuario").val(respuesta["usuario"]);
@@ -74,8 +76,10 @@ $(".btnEditarUsuario").click(function(){
 
 			$("#passwordActual").val(respuesta["password"]);
 
-			if (respuesta["foto"] != "") {
-				$(".previsualizar").attr("src", respuesta["foto"]);
+            if (respuesta["foto"] != "") {
+                
+                $(".previsualizar").attr("src", respuesta["foto"]);
+                
 			}
 		}
 	});
@@ -84,7 +88,7 @@ $(".btnEditarUsuario").click(function(){
 /**========================================
  *	 		ACITIVAR USUARIO
 ========================================*/
-$(".btnActivar").click(function(){
+$(document).on("click", ".btnActivar", function () {
 
 	var idUsuario = $(this).attr("idUsuario");
 	var estadoUsuario = $(this).attr("estadoUsuario");
@@ -101,8 +105,25 @@ $(".btnActivar").click(function(){
 		cache: false,
 		contentType: false,
 		processData: false,
-		success: function (respuesta) {
-			
+		success: function(respuesta){
+            
+            if(window.matchMedia("(max-width:767px)").matches) {
+                
+                Swal.fire({
+                    title: "El usuario ha sido actualizado",
+                    type: "success",
+                    confirmButtonText: "Cerrar"
+                }).then(function (result) {
+                        
+                    if (result.value) {
+                        
+                        window.location = "usuarios";
+
+					}
+					
+                });
+                
+            }
 		}
 	})
 
@@ -121,4 +142,73 @@ $(".btnActivar").click(function(){
 		
 	}
 
+})
+
+/**=========================================== 
+*   	       ELIMINAR USUARIO
+============================================*/
+$(document).on("click", ".btnEliminarUsuario", function () {
+
+    var idUsuario = $(this).attr("idUsuario");
+    var fotoUsuario = $(this).attr("fotoUsuario");
+    var usuario = $(this).attr("usuario");
+    
+    Swal.fire({
+        title: "¿Estas seguro de eliminar el usuario?",
+        text: "¡Si no lo está, puede cancelar la acción",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: "Cancel",
+        confirmButtonText: "Si, eliminar usuario!"
+    }).then(function(result){
+            
+        if (result.value) {
+            
+            window.location = "index.php?ruta=usuarios&idUsuario="+idUsuario+"&usuario="+usuario+"&fotoUsuario="+fotoUsuario;
+
+        }
+    });
+
+})
+
+
+
+/**=========================================== 
+*	       REVISAR USUARIO REGISTARADO
+============================================*/
+
+$("#nuevoUsuario").change(function(){
+	
+	$(".alert").remove();
+	
+    var usuario = $(this).val();
+
+    var datos = new FormData();
+
+    datos.append("validarUsuario", usuario);
+
+        $.ajax({
+            url:"ajax/usuarios.ajax.php",
+            method:"POST",
+            data: datos,
+            cache: false,
+            contentType: false,
+            processData: false,
+            dataType: "json",
+            success:function(respuesta){
+                
+                if(respuesta){
+                    
+                    $("#nuevoUsuario").parent().after('<div class="alert alert-warning">Este usuario ya existe en el sistema</div>');
+
+                    $("#nuevoUsuario").val("");
+
+
+                } 
+
+            }
+
+	    })
 })
