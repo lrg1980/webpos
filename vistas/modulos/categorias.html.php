@@ -41,9 +41,7 @@
             <tr>
               
               <th>#</th>
-              
               <th>Categoría</th>
-
               <th>Acciones</th>
             
             </tr>
@@ -51,40 +49,66 @@
           </thead>
 
           <tbody>
-
-          <?php
-
-            $item = null; 
-            $valor = null; 
-
-            $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
-
-            foreach ($categorias as $key => $value) {
-
-              echo '<tr>
-
-                  <td style="width:10px">'.($key+1).'</td>
-
-                  <td>'.$value["categoria"].'</td>
-
-                  <td>
-
-                    <div class="btn-group">
-
-                        <button class="btn btn-warning"><i class="fa fa-pencil"></i></button> 
-
-                        <button class="btn btn-danger"><i class="fa fa-times"></i></button> 
-
-                    </div>
-                  
-                  </td>
-                
-                </tr>
-                
-                <tr>';
-            }
           
-          ?>
+            <tr>
+
+              <td style="width:10px">1</td>
+
+              <td>Equipos Electromecánicos</td>
+
+              <td>
+
+                <div class="btn-group">
+
+                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button> 
+
+                    <button class="btn btn-danger"><i class="fa fa-times"></i></button> 
+
+                </div>
+              
+              </td>
+
+            </tr>
+
+            <tr>
+
+              <td style="width:10px">1</td>
+
+              <td>Equipos Electromecánicos</td>
+
+              <td>
+
+                <div class="btn-group">
+
+                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button> 
+
+                    <button class="btn btn-danger"><i class="fa fa-times"></i></button> 
+
+                </div>
+              
+              </td>
+
+            </tr>
+
+            <tr>
+              
+              <td style="width:10px">1</td>
+              
+              <td>Equipos Electromecánicos</td>
+              
+              <td>
+
+                <div class="btn-group">
+
+                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button> 
+
+                    <button class="btn btn-danger"><i class="fa fa-times"></i></button> 
+
+                </div>
+              
+              </td>
+
+            </tr>
 
           </tbody>
 
@@ -99,7 +123,7 @@
 </div>
 
 <!--==================================================== 
-                    MODAL AGREGAR CATEGORIAS 
+                    MODAL AGREGAR USUARIO 
 =====================================================-->
 
 <div class="modal fade" tabindex="-1" role="dialog" id="modalAgregarCategoria">
@@ -138,7 +162,7 @@
 
                 <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
-                <input type="text" name="nuevaCategoria" class="form-control input-lg" placeholder="Ingresar nombre de categoría" required>
+                <input type="text" name="nuevoCategoria" class="form-control input-lg" placeholder="Ingresar nombre de categoría" required>
 
               </div>
 
@@ -151,7 +175,6 @@
         <!-- *************************** 
                     Footer Modal 
         *****************************-->
-        
         <div class="modal-footer">
 
           <button type="button" class="btn btn-default pull-left" data-dismisss="modal">Cerrar</button>
@@ -160,12 +183,6 @@
 
         </div>
 
-        <?php 
-          
-          $crearCategoria = new ControladorCategorias();
-          $crearCategoria -> ctrCrearCategoria();
-        
-        ?>
       </form> 
 
     </div><!-- /.modal-content -->
