@@ -59,4 +59,59 @@ class ModeloCategorias{
      
      }
 
+     /**================================== 
+      *         EDITAR CATEGORIA
+     ===================================*/
+
+     static public function mdlEditarCategoria($tabla, $datos){
+
+          $stmt = conexion::conectar()->prepare("UPDATE $tabla SET categoria = :categoria WHERE id = :id");
+
+          $stmt->bindParam(":categoria", $datos["categoria"], PDO::PARAM_STR);
+          $stmt->bindParam(":id", $datos["id"], PDO::PARAM_INT);
+
+          if($stmt->execute()){
+
+               return "ok";
+
+          }else{
+
+               return "error";
+
+          }
+
+          $stmt->close();
+          $stmt = null;
+
+     }
+
+     /**==================================
+     *        ELIMINAR CATEGORIA
+     ==================================*/
+
+     /*=============================================
+	BORRAR CATEGORIA
+	=============================================*/
+
+     static public function mdlBorrarCategoria($tabla, $datos){
+
+          $stmt = conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
+
+          $stmt -> bindParam(":id", $datos, PDO::PARAM_INT);
+
+          if($stmt->execute()){
+
+               return "ok";
+
+          }else{
+
+               return "error";
+
+          }
+
+          $stmt->close();
+          $stmt = null;
+
+     }
+
 }

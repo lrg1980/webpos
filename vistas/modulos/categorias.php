@@ -12,7 +12,7 @@
 
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
       
-      <li class="active">Panel de usuarios</li>
+      <li class="active">Panel de categorías</li>
     
     </ol>
   
@@ -71,17 +71,16 @@
 
                     <div class="btn-group">
 
-                        <button class="btn btn-warning"><i class="fa fa-pencil"></i></button> 
+                        <button class="btn btn-warning btnEditarCategoria" idCategoria="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarCategoria"><i class="fa fa-pencil"></i></button> 
 
-                        <button class="btn btn-danger"><i class="fa fa-times"></i></button> 
+                        <button class="btn btn-danger btnEliminarCategoria" idCategoria="'.$value["id"].'" ><i class="fa fa-times"></i></button> 
 
                     </div>
                   
                   </td>
                 
-                </tr>
-                
-                <tr>';
+                </tr>';
+
             }
           
           ?>
@@ -154,7 +153,7 @@
         
         <div class="modal-footer">
 
-          <button type="button" class="btn btn-default pull-left" data-dismisss="modal">Cerrar</button>
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
 
           <button type="submit" class="btn btn-primary">Guardar categoría</button>
 
@@ -173,3 +172,92 @@
   </div><!-- /.modal-dialog -->
 
 </div><!-- /.modal
+
+<!--==================================================== 
+                    MODAL EDITAR CATEGORIAS 
+=====================================================-->
+
+<div id="modalEditarCategoria" class="modal fade" tabindex="-1" role="dialog">
+
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+      
+      <form action="" role="form" method="POST">  
+         
+        <!-- ************************* 
+                  Header Modal 
+        ************************** -->
+         
+        <div class="modal-header" style="background: #3c8dbc; color: white;">
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+          <h4 class="modal-title">Editar categoría</h4>
+
+        </div>
+
+        <!--******************************
+                       Body Modal 
+        ****************************** -->
+
+        <div class="modal-body">
+
+          <div class="box-body">
+
+          <!-- Ingreso de nombre -->
+
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <input type="text" class="form-control input-lg" name="editarCategoria" id="editarCategoria" required>
+                <input type="hidden"  name="idCategoria" id="idCategoria" required>
+
+              </div>
+
+            </div><!-- ./form-group-->
+          
+          </div>
+
+        </div>
+
+        <!-- *************************** 
+                    Footer Modal 
+        *****************************-->
+        
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+
+          <button type="submit" class="btn btn-primary">Guardar cambios</button>
+
+        </div>
+
+        <?php 
+          
+          $editarCategoria = new ControladorCategorias();
+          $editarCategoria -> ctrEditarCategoria();
+        
+        ?>
+
+      </form> 
+
+    </div><!-- /.modal-content -->
+
+  </div><!-- /.modal-dialog -->
+
+</div><!-- /.modal
+
+/**==========================================
+*       EJECUCIÓN DE BORRAR CATEGORIA
+===========================================*/
+
+<?php 
+          
+  $borrarCategoria = new ControladorCategorias();
+  $borrarCategoria -> ctrBorrarCategoria();
+
+?>
