@@ -24,7 +24,7 @@
             </div>
 
             <div class="box-body">
-                <table class="table table-bordered table-striped dt-responsive tablasProductos" width="100%">
+                <table class="table table-bordered table-striped dt-responsive tablas ">
                     <thead>
                         <tr>
                             <th style="width:10px">#</th>
@@ -39,6 +39,57 @@
                             <th>Acciones</th>
                         </tr>
                     </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td><img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail" width="40px" </td> <td>0001</td>
+                            <td>Lorem ipsum dolor sit amet</td>
+                            <td>Lorem ipsum</td>
+                            <td>20</td>
+                            <td>5.00</td>
+                            <td>12.00</td>
+                            <td>2019-04-22 14:00:33</td>
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail" width="40px" </td> <td>0002</td>
+                            <td>Lorem ipsum dolor sit amet</td>
+                            <td>Lorem ipsum</td>
+                            <td>10</td>
+                            <td>8.00</td>
+                            <td>16.00</td>
+                            <td>2019-04-22 14:00:33</td>
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td><img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail" width="40px" </td> <td>0003</td>
+                            <td>Lorem ipsum dolor sit amet</td>
+                            <td>Lorem ipsum</td>
+                            <td>24</td>
+                            <td>15.00</td>
+                            <td>22.00</td>
+                            <td>2019-04-22 15:00:33</td>
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
                 </table>
             </div>
             <!-- /.box-body -->
