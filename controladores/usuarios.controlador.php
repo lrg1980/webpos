@@ -193,12 +193,9 @@ class ControladorUsuarios{
 
                     });
                     
-
                     </script>';
 
-
                 }
-                
 
             }else{
 
@@ -221,15 +218,12 @@ class ControladorUsuarios{
                         
                     });
                     
-
                 </script>';
                 
             }
-            
 
         }
         
-
 	}
 
 	/* ================================
